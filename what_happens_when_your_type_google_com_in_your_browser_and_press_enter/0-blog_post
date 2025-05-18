@@ -1,0 +1,52 @@
+# What Happens When You Type https://www.google.com in Your Browser?
+
+When you type `https://www.google.com` in your browser and press Enter, a complex series of events occurs behind the scenes to deliver the web page to your screen. This process involves multiple layers of technology, including DNS requests, TCP/IP communication, firewalls, HTTPS/SSL encryption, load balancers, web servers, application servers, and databases. Let’s break down each step of this workflow.
+
+## 1. DNS Request
+
+The first step in accessing a website is resolving the domain name to an IP address. When you enter `https://www.google.com`, your browser checks its cache to see if it has recently accessed this site. If not, it sends a DNS (Domain Name System) request to a DNS server. The DNS server translates the human-readable domain name into an IP address, such as `142.250.190.14`, which is necessary for routing the request over the internet.
+
+## 2. TCP/IP Connection
+
+Once the IP address is obtained, your browser establishes a TCP (Transmission Control Protocol) connection with the server at that IP address. This involves a three-way handshake:
+
+1. Your browser sends a SYN (synchronize) packet to the server.
+2. The server responds with a SYN-ACK (synchronize-acknowledge) packet.
+3. Your browser sends an ACK (acknowledge) packet back to the server.
+
+This connection ensures reliable data transmission over the internet using the IP (Internet Protocol) layer.
+
+## 3. Firewall
+
+Before your request reaches the web server, it may pass through one or more firewalls. Firewalls are security systems that monitor and control incoming and outgoing network traffic based on predetermined security rules. They help protect the server from malicious attacks and unauthorized access.
+
+## 4. HTTPS/SSL
+
+Since you are accessing the site via HTTPS, your browser initiates an SSL (Secure Sockets Layer) handshake with the server. This process involves:
+
+1. The browser requesting a secure connection.
+2. The server sending its SSL certificate to the browser.
+3. The browser verifying the certificate against trusted certificate authorities.
+4. If valid, both parties generate session keys for encrypting the data.
+
+This encryption ensures that the data exchanged between your browser and the server is secure and private.
+
+## 5. Load Balancer
+
+After the secure connection is established, your request is sent to a load balancer. The load balancer distributes incoming traffic across multiple servers to ensure no single server becomes overwhelmed. This improves performance and reliability, allowing for better handling of high traffic volumes.
+
+## 6. Web Server
+
+The load balancer forwards your request to a web server, which is responsible for serving static content like HTML, CSS, and JavaScript files. The web server processes your request and prepares a response, which may involve fetching data from an application server.
+
+## 7. Application Server
+
+If your request requires dynamic content (e.g., personalized search results), the web server forwards it to an application server. The application server runs the backend logic of the website, processing your request, executing business logic, and interacting with databases as needed.
+
+## 8. Database
+
+If the application server needs to retrieve or store data, it communicates with a database. The database stores all the information required by the application, such as user data, search indexes, and more. The application server queries the database, retrieves the necessary data, and sends it back to the web server.
+
+## Conclusion
+
+After all these steps, the web server sends the final response back through the load balancer, firewall, and TCP/IP connection to your browser. Your browser then renders the web page, displaying the content you requested. This entire process happens in a matter of seconds, showcasing the intricate workings of the web stack.

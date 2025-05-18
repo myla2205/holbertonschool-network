@@ -1,0 +1,21 @@
+```mermaid
+graph TD
+    A[User Types google.com] --> B[DNS Resolution]
+    B --> C[Obtain Server IP]
+    C --> D[Establish TCP Connection]
+    D --> E[Send Encrypted Request]
+    E --> F[Firewall]
+    F --> G[Load Balancer]
+    G --> H[Web Server]
+    H --> I[Application Server]
+    I --> J[Request Data from Database]
+    J --> I
+    I --> H
+    H --> G
+    G --> F
+    F --> E
+    E --> D
+    D --> C
+    C --> B
+    B --> A
+```
